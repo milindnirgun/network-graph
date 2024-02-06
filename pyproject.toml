@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "RelationGraph"
+version = "0.1"
+authors = [
+    {name="Milind Nirgun", email="milinds@nirgun.com"}
+]
+description = "A package for API to render relationship graphs"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "gravis"
+]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov"]
+
+[tools.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*"]
+
+[tools.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = [
+    "-p no:cacheprovider",
+    "--import-mode = importLib",
+]
